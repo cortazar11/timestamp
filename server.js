@@ -22,9 +22,9 @@ app.get("/", function (request, response) {
 app.use("/",function(req,res){
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
-  var dateObject=new Date(decoded)
+  var parseDate=new Date(decoded)
   //var unixTime=dateObject.getTime()/100
-  res.end(dateObject)
+  res.end(parseDate.getTime())
   
 })
 

@@ -3,6 +3,9 @@
 
 // init project
 var express = require('express');
+var dateformat=require("dateformat")
+
+
 var app = express();
 
 // we've started you off with Express, 
@@ -22,9 +25,12 @@ app.get("/", function (request, response) {
 app.use("/",function(req,res){
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
-  var parseDate=new Date(decoded)
-  //var unixTime=dateObject.getTime()/100
-  res.end(parseDate.getTime())
+  var  dateObj=new Date(decoded)
+  var isoDate=dateformat(dateObj, "isoDateTime")
+  
+  
+  res.end(dateformat(dateObj, "isoDateTime"))
+  
   
 })
 

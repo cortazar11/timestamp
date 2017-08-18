@@ -29,7 +29,7 @@ app.use("/",function(req,res){
   var isoDate=dateformat(dateObj, "isoDateTime")
   
   
-  res.end(dateformat(dateObj, "isoDateTime"))
+  res.end(typeof decoded)
   
   
 })

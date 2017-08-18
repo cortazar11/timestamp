@@ -24,12 +24,15 @@ app.get("/", function (request, response) {
 
 app.use("/",function(req,res){
   var requested=req.path.substring(1)
-  var decoded=decodeURI(requested)
-  var  dateObj=new Date(decoded)
-  var isoDate=dateformat(dateObj, "isoDateTime")
+  if(typeof requested=="string"){
+    var decoded=decodeURI(requested)
+    var  dateObj=new Date(decoded)
+    var isoDate=dateformat(dateObj, "isoDateTime")
   
+  }
   
-  res.end(typeof decoded)
+  res.end(typeof requested)
+  res.json(new Date(decoded).getTime())
   
   
 })

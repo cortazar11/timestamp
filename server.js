@@ -20,11 +20,16 @@ app.get("/", function (request, response) {
 //console.log("Date: "+decodeURI(uri))
 
 app.use("/",function(req,res){
-  var requested=req
+  var requested=req.path.substring(1)
+  var decoded=decodeURI(requested)
+  var dateObject=new Date(decoded)
+  var unixdateObject.getTime()
+  res.end(decoded)
+  
 })
 
 
 // listen for requests :)
-/*var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
-});*/
+});

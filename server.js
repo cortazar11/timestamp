@@ -26,13 +26,13 @@ app.use("/",function(req,res){
   var requested=req.path.substring(1)
   if(typeof requested=="string"){
     var decoded=decodeURI(requested)
-    var  dateObj=new Date(decoded)
-    var isoDate=dateformat(dateObj, "isoDateTime")
+    
+    //res.json(new Date(decoded).getTime())
   
-  }
+  } 
   
-  res.end(typeof requested)
-  res.json(new Date(decoded).getTime())
+ res.end(typeof requested)
+  
   
   
 })

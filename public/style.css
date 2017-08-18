@@ -1,0 +1,34 @@
+/* styles */
+/* called by your view template */
+
+/* You might want to try something fancier: */
+/* less: http://lesscss.org/ */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  width:70%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align:center;
+}
+
+dl {
+  margin:2em;
+  font-size:1.3em;
+}
+
+dd {
+  margin:1em;
+}
+
+p {
+  font-size:1.2em;
+}
+
+footer {
+  margin-top:2em;
+}

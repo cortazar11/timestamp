@@ -27,11 +27,11 @@ app.use("/",function(req,res){
   if(typeof requested=="string"){
     var decoded=decodeURI(requested)
     
-    //res.json(new Date(decoded).getTime())
+    res.json(new Date(decoded).getTime())
   
   } 
   
- res.end(typeof requested)
+ //res.end(typeof requested)
   
   
   

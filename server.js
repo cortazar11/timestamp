@@ -23,7 +23,10 @@ app.get("/", function (request, response) {
 //console.log("Date: "+decodeURI(uri))
 
 app.use("/",function(req,res){
+  var longDate= "mmmm d, yyyy"
+  
   var requested=req.path.substring(1)
+  res.end(requested)
   var decoded=decodeURI(requested)
   var unixTime=  new Date(decoded).getTime()/1000
   //res.json(unixTime)

@@ -26,11 +26,12 @@ app.use("/",function(req,res){
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
   var unixTime=  new Date(decoded).getTime()/1000
-  res.json(unixTime)
+  //res.json(unixTime)
   
+  var myDate=new Date(requested)
+  res.json(myDate)
+ //res.end(decoded)
   
-  
- //res.end(typeof requested)
   
   
   

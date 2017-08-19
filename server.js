@@ -28,8 +28,9 @@ app.use("/",function(req,res){
   var unixTime=  new Date(decoded).getTime()/1000
   //res.json(unixTime)
   
-  var myDate=new Date(requested)
-  res.json(myDate)
+  var myDate=new Date(requested*1000)
+  var naturalDate=dateformat(myDate,"mmmm d, yyyy")
+  res.json(naturalDate)
  //res.end(decoded)
   
   

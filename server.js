@@ -24,12 +24,11 @@ app.get("/", function (request, response) {
 
 app.use("/",function(req,res){
   var requested=req.path.substring(1)
-  if(typeof requested=="string"){
-    var decoded=decodeURI(requested)
+  var decoded=decodeURI(requested)
     
-    res.json(new Date(decoded).getTime())
+  res.json(new Date(decoded).getTime())
   
-  } 
+  
   
  //res.end(typeof requested)
   

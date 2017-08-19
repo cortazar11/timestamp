@@ -25,8 +25,8 @@ app.get("/", function (request, response) {
 app.use("/",function(req,res){
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
-    
-  res.json(new Date(decoded).getTime())
+  var unixTime=  new Date(decoded).getTime()/1000
+  res.json(unixTime)
   
   
   

@@ -28,8 +28,8 @@ app.use("/",function(req,res){
   
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
-  var validDate=moment("2010 2 29","YYYY MM DD").isValid()
-  res.end(validDate)
+  //var validDate=moment(decoded).isValid()
+  res.end(decoded)
   var unixTime=  new Date(decoded).getTime()/1000
   //res.json(unixTime)
   

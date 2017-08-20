@@ -22,14 +22,21 @@ app.get("/", function (request, response) {
 
 //var uri="December%2015,%202015"
 //console.log("Date: "+decodeURI(uri))
+var myObject={
+  default:"ddd mmm dd yyyy HH:MM:ss",
+  shortDate:"m/d/yy",
+  mediumDate: "mmm d, yyyy",
+  
+  
+}
+
 
 app.use("/",function(req,res){
   var longDate= "mmmm d, yyyy"
   
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
-  //var validDate=moment(decoded).isValid()
-  res.end(decoded)
+  
   var unixTime=  new Date(decoded).getTime()/1000
   //res.json(unixTime)
   

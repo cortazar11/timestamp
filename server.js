@@ -4,6 +4,7 @@
 // init project
 var express = require('express');
 var dateformat=require("dateformat")
+var moment=require("moment")
 
 
 var app = express();
@@ -26,8 +27,9 @@ app.use("/",function(req,res){
   var longDate= "mmmm d, yyyy"
   
   var requested=req.path.substring(1)
-  res.end(requested)
   var decoded=decodeURI(requested)
+  var validDate=moment("2010 2 29","YYYY MM DD").isValid()
+  res.end(validDate)
   var unixTime=  new Date(decoded).getTime()/1000
   //res.json(unixTime)
   

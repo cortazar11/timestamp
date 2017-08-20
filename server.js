@@ -26,7 +26,15 @@ var myObject={
   default:"ddd mmm dd yyyy HH:MM:ss",
   shortDate:"m/d/yy",
   mediumDate: "mmm d, yyyy",
-  
+  longDate:"mmmm d, yyyy",
+  fullDate:"dddd, mmmm d, yyyy",
+  shortTime:"h:MM TT",
+  mediumTime:"h:MM:ss TT",
+  longTime:"h:MM:ss TT Z",
+  isoDate:"yyyy-mm-dd",
+  isoTime:"HH:MM:ss",
+  isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",
+  isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
   
 }
 

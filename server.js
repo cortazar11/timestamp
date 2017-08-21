@@ -73,13 +73,17 @@ app.use("/",function(req,res){
       
       Object.keys(obj).forEach(function(key){
         
-              if(typeof dateformat(now,obj[key]))
+              
+        
+              if(typeof dateformat(now,obj[key])=="string"){
+                  res.json(decoded)
+              } else {
+                res.json
+              }
     
-              res.json()
+                    
       
-  
-                      
-              })
+                  })
       
      
   

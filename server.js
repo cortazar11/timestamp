@@ -72,14 +72,15 @@ app.use("/",function(req,res){
       var now= new Date(decoded)
       
       Object.keys(obj).forEach(function(key){
+              var myDate=dateformat(now,obj[key])
         
+                 if(typeof myDate=="string"){
+                   res.json(myDate)
+                 } else {
+                   res.json({"null":"null"})
+                 }
+                  
               
-        
-              if(typeof dateformat(now,obj[key])=="string"){
-                  res.json(decoded)
-              } else {
-                res.json
-              }
     
                     
       

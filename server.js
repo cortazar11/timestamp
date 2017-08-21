@@ -22,33 +22,42 @@ app.get("/", function (request, response) {
 
 //var uri="December%2015,%202015"
 //console.log("Date: "+decodeURI(uri))
-var obj={
-  default:"ddd mmm dd yyyy HH:MM:ss",
-  shortDate:"m/d/yy",
-  mediumDate: "mmm d, yyyy",
-  longDate:"mmmm d, yyyy",
-  fullDate:"dddd, mmmm d, yyyy",
-  shortTime:"h:MM TT",
-  mediumTime:"h:MM:ss TT",
-  longTime:"h:MM:ss TT Z",
-  isoDate:"yyyy-mm-dd",
-  isoTime:"HH:MM:ss",
-  isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",
-  isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
+
+function myDate(item){
+  var obj={
+          default:"ddd mmm dd yyyy HH:MM:ss",
+          shortDate:"m/d/yy",
+          mediumDate: "mmm d, yyyy",
+          longDate:"mmmm d, yyyy",
+          fullDate:"dddd, mmmm d, yyyy",
+          shortTime:"h:MM TT",
+          mediumTime:"h:MM:ss TT",
+          longTime:"h:MM:ss TT Z",
+          isoDate:"yyyy-mm-dd",
+          isoTime:"HH:MM:ss",
+          isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",
+          isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
+
+          }
+
+  Object.keys(obj).forEach(function(key){
+          return typeof obj[key]
+      })
   
 }
 
-Object.keys(obj).forEach(function(key){
-      console.log(typeof obj[key])
-  })
+
+
 
 
 
 app.use("/",function(req,res){
   
+    
+  
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
-  
+  myDate(decoded)
   
   
   

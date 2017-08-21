@@ -71,10 +71,12 @@ app.use("/",function(req,res){
   
   
       var requested=req.path.substring(1)
-      if(/\d{1,13}/.test(requested)){
+      if(/^[0-9]{1,13}$/.test(requested)){
             res.end(requested)
+        } else {
+          res.end("caca")
         }
-      res.end(requested)
+      
       var decoded=decodeURI(requested)
       var now= new Date(decoded)
       
@@ -83,7 +85,7 @@ app.use("/",function(req,res){
         
                  if(typeof myDate=="string"){
                    var unixTime=  new Date(decoded).getTime()/1000
-                   res.json({"unix":unixTime,"natural":decoded})
+                  // res.json({"unix":unixTime,"natural":decoded})
                  } 
                   
               

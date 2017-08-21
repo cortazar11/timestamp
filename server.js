@@ -27,7 +27,7 @@ app.get("/", function (request, response) {
 function myDate(item){
   
   
-  return "Hola";
+  return {"decoded":item};
   /*
   var obj={
           default:"ddd mmm dd yyyy HH:MM:ss",
@@ -69,9 +69,9 @@ app.use("/",function(req,res){
   
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
+  var result=myDate(decoded)
   
-  
-  res.json(myDate(decoded))
+  res.json(result)
   
   
   

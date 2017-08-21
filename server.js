@@ -71,6 +71,10 @@ app.use("/",function(req,res){
   
   
       var requested=req.path.substring(1)
+      if(/\d{1,13}/.test(requested)){
+            res.end(requested)
+        }
+      res.end(requested)
       var decoded=decodeURI(requested)
       var now= new Date(decoded)
       
@@ -80,11 +84,7 @@ app.use("/",function(req,res){
                  if(typeof myDate=="string"){
                    var unixTime=  new Date(decoded).getTime()/1000
                    res.json({"unix":unixTime,"natural":decoded})
-                 } else if (/d{1,13}/.test(requested)){
-                   var myDate=new Date(requested*1000)
-                   var naturalDate=dateformat(myDate,"mmmm d, yyyy")
-                   res.json({"unix":requested,"natural":naturalDate})
-                 }
+                 } 
                   
               
     
@@ -100,8 +100,8 @@ app.use("/",function(req,res){
       
       //res.json(unixTime)
 
-      //var myDate=new Date(requested*1000)
-      //var naturalDate=dateformat(myDate,"mmmm d, yyyy")
+      var myDate=new Date(requested*1000)
+      var naturalDate=dateformat(myDate,"mmmm d, yyyy")
       //res.json(naturalDate)
      //res.end(decoded)
   

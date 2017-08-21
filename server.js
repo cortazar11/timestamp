@@ -22,7 +22,7 @@ app.get("/", function (request, response) {
 
 //var uri="December%2015,%202015"
 //console.log("Date: "+decodeURI(uri))
-var myObject={
+var obj={
   default:"ddd mmm dd yyyy HH:MM:ss",
   shortDate:"m/d/yy",
   mediumDate: "mmm d, yyyy",
@@ -39,11 +39,18 @@ var myObject={
 }
 
 
+
 app.use("/",function(req,res){
   var longDate= "mmmm d, yyyy"
   
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
+  var now=new Date(decoded);
+  Object.keys(obj).forEach(function(key){
+      res.json(dateformat(now,obj(key)))
+  })
+  
+  
   
   var unixTime=  new Date(decoded).getTime()/1000
   //res.json(unixTime)
@@ -58,8 +65,9 @@ app.use("/",function(req,res){
   
 })
 
-
+/*
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+*/

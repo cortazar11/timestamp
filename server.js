@@ -72,11 +72,32 @@ app.use("/",function(req,res){
   
       var requested=req.path.substring(1)
       if(/^[0-9]{1,13}$/.test(requested)){
-            res.end(requested)
+            var myDate=new Date(requested*1000)
+            var naturalDate=dateformat(myDate,"mmmm d, yyyy")
+            result={"unix":requested,"natural date":naturalDate}
         } else {
-          res.end("caca")
-        }
+            var decoded=decodeURI(requested)
+            var now= new Date(decoded)
+            
+            Object.keys(obj).forEach(function(key){
+              var myDate=dateformat(now,obj[key])
+        
+                 if(typeof myDate=="string"){
+                   var unixTime=  new Date(decoded).getTime()/1000
+                  // res.json({"unix":unixTime,"natural":decoded})
+                 } 
+                  
+              
+    
+                    
       
+                  })
+            
+        }
+  
+      res.json(result)
+      
+      /*
       var decoded=decodeURI(requested)
       var now= new Date(decoded)
       
@@ -95,19 +116,19 @@ app.use("/",function(req,res){
                   })
       
      
-  
+  */
   
   
   
       
       //res.json(unixTime)
 
-      var myDate=new Date(requested*1000)
-      var naturalDate=dateformat(myDate,"mmmm d, yyyy")
+      //var myDate=new Date(requested*1000)
+     // var naturalDate=dateformat(myDate,"mmmm d, yyyy")
       //res.json(naturalDate)
      //res.end(decoded)
   
-      //res.json(result)
+      
   
   
 })

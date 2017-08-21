@@ -50,6 +50,9 @@ function myDate(item){
 
 
 app.use("/",function(req,res){
+    var result; 
+  
+  
     var obj={
           default:"ddd mmm dd yyyy HH:MM:ss",
           shortDate:"m/d/yy",
@@ -75,10 +78,8 @@ app.use("/",function(req,res){
               var myDate=dateformat(now,obj[key])
         
                  if(typeof myDate=="string"){
-                   res.json(myDate)
-                 } else {
-                   res.json({"null":"null"})
-                 }
+                   result=myDate;
+                 } 
                   
               
     
@@ -99,7 +100,7 @@ app.use("/",function(req,res){
       //res.json(naturalDate)
      //res.end(decoded)
   
-  
+      res.json(result)
   
   
 })

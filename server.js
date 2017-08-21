@@ -85,6 +85,7 @@ app.use("/",function(req,res){
                  if(typeof myDate=="string"){
                    var unixTime=  new Date(decoded).getTime()/1000
                   // res.json({"unix":unixTime,"natural":decoded})
+                   result={"unix":unixTime,"natural date":decoded}
                  } 
                   
               

@@ -38,17 +38,18 @@ var obj={
   
 }
 
+Object.keys(obj).forEach(function(key){
+      console.log(typeof obj[key])
+  })
+
 
 
 app.use("/",function(req,res){
-  var longDate= "mmmm d, yyyy"
   
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
-  var now=new Date(decoded);
-  Object.keys(obj).forEach(function(key){
-      res.json(dateformat(now,obj(key)))
-  })
+  
+  
   
   
   

@@ -22,14 +22,35 @@ app.get("/", function (request, response) {
 
 //var uri="December%2015,%202015"
 //console.log("Date: "+decodeURI(uri))
-
+/*
 
 function myDate(item){
   
   
   return {"decoded":item};
-  /*
-  var obj={
+  
+  
+  
+  var now=new Date(item)
+  
+  Object.keys(obj).forEach(function(key){
+    
+              return dateformat(now,obj[key])
+      
+  
+                      
+              })
+  
+
+}*/
+
+
+                          
+
+
+
+app.use("/",function(req,res){
+    var obj={
           default:"ddd mmm dd yyyy HH:MM:ss",
           shortDate:"m/d/yy",
           mediumDate: "mmm d, yyyy",
@@ -43,46 +64,33 @@ function myDate(item){
           isoDateTime:"yyyy-mm-dd'T'HH:MM:ss",
           isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
 
-          }
+        }
   
-  var now=new Date(item)
   
-  Object.keys(obj).forEach(function(key){
+      var requested=req.path.substring(1)
+      var decoded=decodeURI(requested)
+      var now= new Date(decoded)
+      
+      Object.keys(obj).forEach(function(key){
     
-              return dateformat(now,obj[key])
+              res.json(dateformat(now,obj[key]))
       
   
                       
-              })*/
+              })
+      
+     
   
+  
+  
+  
+      var unixTime=  new Date(decoded).getTime()/1000
+      //res.json(unixTime)
 
-}
-
-
-                          
-
-
-
-app.use("/",function(req,res){
-  
-    
-  
-  var requested=req.path.substring(1)
-  var decoded=decodeURI(requested)
-  var result=myDate(decoded)
-  
-  res.json(result)
-  
-  
-  
-  
-  var unixTime=  new Date(decoded).getTime()/1000
-  //res.json(unixTime)
-  
-  var myDate=new Date(requested*1000)
-  var naturalDate=dateformat(myDate,"mmmm d, yyyy")
-  //res.json(naturalDate)
- //res.end(decoded)
+      var myDate=new Date(requested*1000)
+      var naturalDate=dateformat(myDate,"mmmm d, yyyy")
+      //res.json(naturalDate)
+     //res.end(decoded)
   
   
   

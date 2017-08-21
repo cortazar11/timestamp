@@ -24,6 +24,8 @@ app.get("/", function (request, response) {
 //console.log("Date: "+decodeURI(uri))
 
 function myDate(item){
+  
+  return item;
   var obj={
           default:"ddd mmm dd yyyy HH:MM:ss",
           shortDate:"m/d/yy",
@@ -39,15 +41,22 @@ function myDate(item){
           isoUtcDateTime:"UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
 
           }
-
-  Object.keys(obj).forEach(function(key){
-          return typeof obj[key]
-      })
   
+  var now=new Date(item)
+  
+  Object.keys(obj).forEach(function(key){
+    
+          //return dateformat(now,obj[key])
+      
+  
+                      
+              })
+  
+
 }
 
 
-
+                          
 
 
 
@@ -57,7 +66,9 @@ app.use("/",function(req,res){
   
   var requested=req.path.substring(1)
   var decoded=decodeURI(requested)
-  myDate(decoded)
+  var result=myDate(decoded)
+  
+  res.json(result)
   
   
   

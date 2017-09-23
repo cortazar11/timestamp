@@ -20,34 +20,6 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-//var uri="December%2015,%202015"
-//console.log("Date: "+decodeURI(uri))
-/*
-
-function myDate(item){
-  
-  
-  return {"decoded":item};
-  
-  
-  
-  var now=new Date(item)
-  
-  Object.keys(obj).forEach(function(key){
-    
-              return dateformat(now,obj[key])
-      
-  
-                      
-              })
-  
-
-}*/
-
-
-                          
-
-
 
 app.use("/",function(req,res){
     var result; 
@@ -98,39 +70,7 @@ app.use("/",function(req,res){
   
       res.json(result)
       
-      /*
-      var decoded=decodeURI(requested)
-      var now= new Date(decoded)
-      
-      Object.keys(obj).forEach(function(key){
-              var myDate=dateformat(now,obj[key])
-        
-                 if(typeof myDate=="string"){
-                   var unixTime=  new Date(decoded).getTime()/1000
-                  // res.json({"unix":unixTime,"natural":decoded})
-                 } 
-                  
-              
-    
-                    
-      
-                  })
-      
-     
-  */
-  
-  
-  
-      
-      //res.json(unixTime)
-
-      //var myDate=new Date(requested*1000)
-     // var naturalDate=dateformat(myDate,"mmmm d, yyyy")
-      //res.json(naturalDate)
-     //res.end(decoded)
-  
-      
-  
+       
   
 })
 

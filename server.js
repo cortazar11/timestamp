@@ -46,7 +46,7 @@ app.use("/",function(req,res){
       if(/^[0-9]{1,13}$/.test(requested)){
             var myDate=new Date(requested*1000)
             var naturalDate=dateformat(myDate,"mmmm d, yyyy")
-            result={"unix":requested,"natural date":naturalDate}
+            result={"unix":parseInt(requested),"natural date":naturalDate}
         } else {
             var decoded=decodeURI(requested)
             var now= new Date(decoded)
@@ -70,7 +70,7 @@ app.use("/",function(req,res){
   
       res.json(result)
       
-       
+        
   
 })
 

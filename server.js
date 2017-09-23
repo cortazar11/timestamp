@@ -44,7 +44,7 @@ app.use("/",function(req,res){
   
       var requested=req.path.substring(1)
       
-      try {
+      
         
       
       if(/^[0-9]{1,13}$/.test(requested)){
@@ -71,9 +71,7 @@ app.use("/",function(req,res){
                   })
             
         }
-} catch (error){
-  print("Wrong: ", error);
-}
+
   
       res.json(result)
       

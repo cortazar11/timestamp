@@ -79,6 +79,11 @@ app.use("/",function(req,res){
   
 })
 
+app.use(function (err, req, res, next) {
+ 
+  res.status(500).send('Bad Request')
+})
+
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
